@@ -24,14 +24,14 @@ Just paste your OpenAI key in the sidebar when the app loads.
 
 ### Option B — Environment variable
 ```bash
-export OPENAI_API_KEY="sk-..."
+export GROQ_API_KEY="sk-..."
 streamlit run app.py
 ```
 
 ### Option C — Streamlit secrets (for cloud deployment)
 Edit `.streamlit/secrets.toml`:
 ```toml
-OPENAI_API_KEY = "sk-..."
+GROQ_API_KEY = "sk-..."
 ```
 
 ---
@@ -85,14 +85,14 @@ ai-data-analyst/
 1. Push to GitHub
 2. Go to [share.streamlit.io](https://share.streamlit.io)
 3. Connect your repo → set `app.py` as entrypoint
-4. Add `OPENAI_API_KEY` in Secrets
+4. Add `GROQ_API_KEY` in Secrets
 5. Deploy ✅
 
 ### Render
 1. Create a new Web Service
 2. Build command: `pip install -r requirements.txt`
 3. Start command: `streamlit run app.py --server.port=$PORT --server.address=0.0.0.0`
-4. Add `OPENAI_API_KEY` as environment variable
+4. Add `GROQ_API_KEY` as environment variable
 
 ---
 
