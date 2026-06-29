@@ -2,14 +2,18 @@
 
 Upload any CSV/Excel → auto-clean → ask questions in plain English → get SQL + charts + insights.
 
+## 🌐 Live Demo
+
+🔗 **[Launch App](https://ai-data-analyst-fmhssbhdbkyubmkpgozcf7.streamlit.app/)**
+
+---
+
 ## 🚀 Quick Start
 
 ```bash
-git clone <your-repo>
+git clone https://github.com/extinct-anni/ai-data-analyst
 cd ai-data-analyst
-
 pip install -r requirements.txt
-
 streamlit run app.py
 ```
 
@@ -19,20 +23,19 @@ Then open [http://localhost:8501](http://localhost:8501) in your browser.
 
 ## ⚙️ Configuration
 
-### Option A — Enter API key in the sidebar (easiest)
-Just paste your GROQ API key in the sidebar when the app loads.
+### Option A — Streamlit secrets (recommended)
+Edit `.streamlit/secrets.toml`:
+```toml
+GROQ_API_KEY = "gsk_your_key_here"
+```
 
 ### Option B — Environment variable
 ```bash
-export GROQ_API_KEY="sk-..."
+export GROQ_API_KEY="gsk_your_key_here"
 streamlit run app.py
 ```
 
-### Option C — Streamlit secrets (for cloud deployment)
-Edit `.streamlit/secrets.toml`:
-```toml
-GROQ_API_KEY = "sk-..."
-```
+Get a free API key at [console.groq.com](https://console.groq.com)
 
 ---
 
@@ -46,8 +49,8 @@ ai-data-analyst/
 │   ├── schema.py           # Auto-detect column types + stats
 │   ├── cleaning.py         # Missing values, outliers, duplicates
 │   ├── sql_engine.py       # SQLite loader + query executor
-│   ├── ai_engine.py        # All OpenAI API calls
-│   └── viz.py              # Chart generation (matplotlib + seaborn)
+│   ├── ai_engine.py        # All Groq AI API calls
+│   └── viz.py              # Chart generation
 ├── data/                   # SQLite DB stored here at runtime
 ├── .streamlit/
 │   └── secrets.toml        # API key for cloud deployment
@@ -57,7 +60,7 @@ ai-data-analyst/
 
 ---
 
-## 🧩 Features by Phase
+## 🧩 Features
 
 | Phase | Feature | Status |
 |-------|---------|--------|
@@ -79,23 +82,6 @@ ai-data-analyst/
 
 ---
 
-## ☁️ Deployment
-
-### Streamlit Cloud (free, easiest)
-1. Push to GitHub
-2. Go to [share.streamlit.io](https://share.streamlit.io)
-3. Connect your repo → set `app.py` as entrypoint
-4. Add `GROQ_API_KEY` in Secrets
-5. Deploy ✅
-
-### Render
-1. Create a new Web Service
-2. Build command: `pip install -r requirements.txt`
-3. Start command: `streamlit run app.py --server.port=$PORT --server.address=0.0.0.0`
-4. Add `GROQ_API_KEY` as environment variable
-
----
-
 ## 💡 Example Questions to Ask
 
 - *"What are the top 5 categories by revenue?"*
@@ -112,4 +98,15 @@ ai-data-analyst/
 - **Pandas / NumPy** — Data processing
 - **Matplotlib / Seaborn** — Visualizations
 - **SQLAlchemy + SQLite** — SQL engine
-- **OpenAI GPT-4o-mini** — AI brain
+- **Groq (Llama 3.3-70B)** — Free AI brain
+
+---
+
+## ☁️ Deployment
+
+### Streamlit Cloud (free)
+1. Push to GitHub
+2. Go to [share.streamlit.io](https://share.streamlit.io)
+3. Connect repo → set `app.py` as entrypoint
+4. Add `GROQ_API_KEY` in Secrets
+5. Deploy ✅
