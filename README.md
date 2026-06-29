@@ -20,7 +20,7 @@ Then open [http://localhost:8501](http://localhost:8501) in your browser.
 ## ⚙️ Configuration
 
 ### Option A — Enter API key in the sidebar (easiest)
-Just paste your OpenAI key in the sidebar when the app loads.
+Just paste your GROQ API key in the sidebar when the app loads.
 
 ### Option B — Environment variable
 ```bash
